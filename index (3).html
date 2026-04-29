@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheTechHawk — Tech Reviews, Deals & Guides</title>
+  <meta name="description" content="Sharp tech articles, honest gear picks, and the best Amazon deals. TheTechHawk swoops in so you never waste money on the wrong tech." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --dark2:   #1a1a1a;
+      --border:  #2a2a2a;
+      --muted:   #666;
+      --text:    #e8e8e8;
+      --text2:   #999;
+      --accent:  #E8A020;
+      --accent2: #c8861a;
+      --white:   #ffffff;
+      --red:     #e03030;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--black); color: var(--text); font-family: 'Barlow', sans-serif; font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav { background: var(--black); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo-icon { width: 34px; height: 34px; }
+    .logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: -0.5px; color: var(--white); }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text2); padding: 6px 11px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--white); background: var(--dark2); }
+    .nav-search { background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 7px 13px; color: var(--text); font-size: 13px; font-family: 'Barlow', sans-serif; width: 190px; outline: none; transition: border-color 0.15s; }
+    .nav-search:focus { border-color: var(--accent); }
+    .nav-search::placeholder { color: var(--muted); }
+
+    /* TICKER */
+    .ticker { background: var(--accent); overflow: hidden; padding: 7px 0; }
+    .ticker-track { display: flex; gap: 60px; animation: ticker 28s linear infinite; width: max-content; }
+    .ticker-item { font-size: 12px; font-weight: 600; color: var(--black); white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+    .ticker-dot { width: 5px; height: 5px; background: rgba(0,0,0,0.3); border-radius: 50%; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* HERO */
+    .hero { background: var(--dark); border-bottom: 1px solid var(--border); padding: 52px 24px 44px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; top: -80px; right: -80px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 65%); pointer-events: none; }
+    .hero-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 7px; background: rgba(232,160,32,0.1); border: 1px solid rgba(232,160,32,0.22); border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(40px, 5vw, 62px); line-height: 0.95; color: var(--white); letter-spacing: -1px; margin-bottom: 18px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-sub { color: var(--text2); font-size: 15px; line-height: 1.7; max-width: 480px; margin-bottom: 28px; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--black); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 8px; border: none; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 600; padding: 11px 22px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .btn-ghost:hover { border-color: var(--muted); background: var(--dark2); }
+    .hero-card { background: var(--dark2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .hero-card-img { height: 150px; background: linear-gradient(135deg, #0c1520 0%, #182030 100%); display: flex; align-items: center; justify-content: center; }
+    .hero-card-body { padding: 16px; }
+    .hero-card-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 7px; }
+    .hero-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 19px; font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 8px; }
+    .hero-card-desc { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 12px; }
+    .hero-card-foot { display: flex; align-items: center; justify-content: space-between; }
+    .amz-badge { background: #FF9900; color: #000; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .read-link { font-size: 12px; font-weight: 600; color: var(--accent); }
+    .read-link:hover { text-decoration: underline; }
+
+    /* PAGE INNER */
+    .page-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* CATEGORIES */
+    .cats { padding: 30px 24px 0; }
+    .cat-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+    .cat-card { background: var(--dark); border: 1px solid var(--border); border-radius: 10px; padding: 14px 8px; text-align: center; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+    .cat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .cat-icon { font-size: 22px; margin-bottom: 7px; }
+    .cat-name { font-size: 11px; font-weight: 600; color: var(--text2); line-height: 1.3; }
+
+    /* MAIN LAYOUT */
+    .main { max-width: 1160px; margin: 0 auto; padding: 34px 24px 48px; display: grid; grid-template-columns: 1fr 290px; gap: 36px; }
+
+    /* SECTION HEADER */
+    .sec-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .sec-label { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+    .sec-more { font-size: 12px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .sec-more:hover { text-decoration: underline; }
+
+    /* CONTENT CARDS */
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 36px; }
+    .c-card { background: var(--dark); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+    .c-card:hover { border-color: var(--muted); transform: translateY(-2px); }
+    .c-thumb { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 32px; position: relative; }
+    .t-blue   { background: linear-gradient(135deg, #07101a, #0f2035); }
+    .t-green  { background: linear-gradient(135deg, #050f07, #0c1f10); }
+    .t-orange { background: linear-gradient(135deg, #100a00, #231500); }
+    .t-purple { background: linear-gradient(135deg, #09071a, #150f2a); }
+    .c-type { position: absolute; top: 9px; left: 9px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; }
+    .type-article { background: rgba(60,120,255,0.15); color: #6898ff; }
+    .type-deal    { background: rgba(232,160,32,0.15); color: var(--accent); }
+    .type-guide   { background: rgba(40,200,100,0.15); color: #40c870; }
+    .c-body { padding: 13px 15px 15px; }
+    .c-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 5px; }
+    .c-meta { font-size: 11px; color: var(--text2); margin-bottom: 10px; }
+    .c-foot { display: flex; align-items: center; justify-content: space-between; }
+    .c-arrow { font-size: 13px; font-weight: 600; color: var(--accent); }
+
+    /* FEATURED CARD */
+    .feat-card { background: var(--dark); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 36px; display: grid; grid-template-columns: 180px 1fr; cursor: pointer; transition: border-color 0.15s; }
+    .feat-card:hover { border-color: var(--muted); }
+    .feat-thumb { background: linear-gradient(135deg, #0d1020, #1a1535); display: flex; align-items: center; justify-content: center; font-size: 46px; }
+    .feat-body { padding: 20px; }
+    .feat-eyebrow { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 7px; }
+    .feat-title { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 8px; }
+    .feat-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+    .feat-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+    .tag-amz  { background: rgba(255,153,0,0.12); color: #ffaa28; border: 1px solid rgba(255,153,0,0.2); }
+    .tag-guide{ background: rgba(60,120,255,0.10); color: #7090ff; border: 1px solid rgba(60,120,255,0.2); }
+
+    /* SIDEBAR */
+    .sb-box { background: var(--dark); border: 1px solid var(--border); border-radius: 12px; padding: 17px; margin-bottom: 18px; }
+    .sb-title { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .sb-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+    .deal { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
+    .deal:hover { opacity: 0.75; }
+    .deal:last-child { border-bottom: none; padding-bottom: 0; }
+    .deal-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--dark2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .deal-info { flex: 1; min-width: 0; }
+    .deal-name { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .deal-prices { display: flex; align-items: center; gap: 5px; }
+    .deal-now { font-size: 13px; font-weight: 700; color: var(--accent); }
+    .deal-was { font-size: 11px; color: var(--text2); text-decoration: line-through; }
+    .deal-pct { font-size: 10px; font-weight: 700; background: var(--red); color: #fff; padding: 1px 5px; border-radius: 3px; }
+    .nl-box { background: linear-gradient(135deg, #0c1420, #101828); border: 1px solid rgba(232,160,32,0.18); border-radius: 12px; padding: 17px; margin-bottom: 18px; }
+    .nl-title { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 7px; display: flex; align-items: center; gap: 8px; }
+    .nl-desc { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 13px; }
+    .nl-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 7px; padding: 8px 12px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 13px; outline: none; margin-bottom: 8px; transition: border-color 0.15s; }
+    .nl-input:focus { border-color: var(--accent); }
+    .nl-input::placeholder { color: var(--muted); }
+    .nl-btn { width: 100%; background: var(--accent); color: var(--black); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; padding: 9px; border: none; border-radius: 7px; cursor: pointer; transition: background 0.15s; }
+    .nl-btn:hover { background: var(--accent2); }
+    .pick { display: flex; align-items: center; gap: 11px; padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .pick:last-child { border-bottom: none; padding-bottom: 0; }
+    .pick-num { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: var(--border); width: 26px; text-align: center; flex-shrink: 0; }
+    .pick-num.gold { color: var(--accent); }
+    .pick-info { flex: 1; }
+    .pick-name { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .pick-badge { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; background: rgba(255,153,0,0.15); color: #ffaa28; }
+
+    /* FOOTER */
+    .footer { background: var(--dark); border-top: 1px solid var(--border); padding: 32px 24px 24px; margin-top: 8px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 24px; }
+    .footer-about { font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: 10px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 11px; }
+    .footer-links { display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a { font-size: 13px; color: var(--text2); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 18px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-disc { font-size: 11px; color: var(--muted); line-height: 1.6; max-width: 580px; }
+    .footer-copy { font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-content { animation: fadeUp 0.45s ease both; }
+    .hero-card { animation: fadeUp 0.45s 0.12s ease both; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .cat-grid { grid-template-columns: repeat(4, 1fr); }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .main { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .cat-grid { grid-template-columns: repeat(4, 1fr); }
+      .feat-card { grid-template-columns: 1fr; }
+      .feat-thumb { height: 100px; }
+      .nav-links { display: none; }
+      .nav-search { width: 140px; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg class="logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="34" height="34" rx="8" fill="#1a1a1a"/>
+        <path d="M24 8c-1.8.9-3.6 1.4-5.4 3.8-.9 1.4-1.4 2.8-1.4 4.7 0 .9.18 1.8.46 2.7L13 23.6c-.46.46-.46.92 0 1.38l.92.92c.46.46.92.46 1.38 0l4.6-4.6c.9.28 1.8.46 2.7.46 3.68 0 6.44-2.76 6.44-6.44 0-1.84-.64-3.5-1.84-4.6l-2.76 3.68-1.84-1.84L26 9.84 24 8z" fill="#E8A020"/>
+        <path d="M11 13.5c-1.8 0-3.2.9-4.1 2.3l2.76 1.84-1.84 1.84c.46 1.38 1.84 2.3 3.68 2.3 2.3 0 4.14-1.84 4.14-4.14S13.3 13.5 11 13.5z" fill="#c8861a" opacity=".75"/>
+      </svg>
+      <span class="logo-text">The<span>Tech</span>Hawk</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">Deals</a></li>
+      <li><a href="#">How-To Guides</a></li>
+      <li><a href="#">Smart Home</a></li>
+      <li><a href="#">Power Tools</a></li>
+      <li><a href="#">Gadgets</a></li>
+    </ul>
+    <input class="nav-search" type="search" placeholder="Search articles &amp; deals…" />
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><div class="ticker-dot"></div>Amazon Spring Sale — up to 40% off smart home gear</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>New Guide: Best Smart Bulbs Under $50</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>Echo Show 10 drops to $199 — Lowest price this year</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>New Article: Top 5 Wi-Fi 7 Routers Ranked for 2025</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>Ring Doorbell Pro 2 — $149 deal live now</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>Amazon Spring Sale — up to 40% off smart home gear</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>New Guide: Best Smart Bulbs Under $50</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>Echo Show 10 drops to $199 — Lowest price this year</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>New Article: Top 5 Wi-Fi 7 Routers Ranked for 2025</div>
+    <div class="ticker-item"><div class="ticker-dot"></div>Ring Doorbell Pro 2 — $149 deal live now</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#E8A020"/></svg>
+        Honest reviews — no sponsored fluff
+      </div>
+      <h1>Sharp Tech<br/>Picks.<br/><em>Real Talk.</em></h1>
+      <p class="hero-sub">TheTechHawk swoops in on the best gear, articles, and Amazon deals — so you never waste money on the wrong tech.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Browse Top Picks</button>
+        <button class="btn-ghost">Read Latest Guide</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-img">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+          <path d="M50 16c-3.6 1.8-7.2 2.8-10.8 7.6-1.8 2.8-2.8 5.6-2.8 9.4 0 1.8.36 3.6.92 5.4L26 48.2c-.92.92-.92 1.84 0 2.76l1.84 1.84c.92.92 1.84.92 2.76 0l9.2-9.2c1.8.56 3.6.92 5.4.92 7.36 0 12.88-5.52 12.88-12.88 0-3.68-1.28-7-3.68-9.2l-5.52 7.36-3.68-3.68L52 17.84 50 16z" fill="#E8A020"/>
+          <path d="M22 27c-3.6 0-6.4 1.8-8.2 4.6l5.52 3.68-3.68 3.68c.92 2.76 3.68 4.6 7.36 4.6 4.6 0 8.28-3.68 8.28-8.28S26.6 27 22 27z" fill="#c8861a" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="hero-card-body">
+        <div class="hero-card-tag">📖 Featured Guide</div>
+        <div class="hero-card-title">Complete Smart Home Setup Guide for 2025</div>
+        <p class="hero-card-desc">Build a connected home without overspending — from switches to full automation.</p>
+        <div class="hero-card-foot">
+          <span class="amz-badge">Amazon Picks</span>
+          <a href="#" class="read-link">Read →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="cats page-inner">
+  <div class="sec-head" style="padding-top:30px;">
+    <span class="sec-label">Browse Categories</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cat-icon">🔧</div><div class="cat-name">Power Tools</div></div>
+    <div class="cat-card"><div class="cat-icon">📦</div><div class="cat-name">Gadgets</div></div>
+    <div class="cat-card"><div class="cat-icon">🏠</div><div class="cat-name">Home Improvement</div></div>
+    <div class="cat-card"><div class="cat-icon">💡</div><div class="cat-name">Smart Home</div></div>
+    <div class="cat-card"><div class="cat-icon">📡</div><div class="cat-name">Networking</div></div>
+    <div class="cat-card"><div class="cat-icon">📷</div><div class="cat-name">Security Cams</div></div>
+    <div class="cat-card"><div class="cat-icon">🔆</div><div class="cat-name">Lighting</div></div>
+    <div class="cat-card"><div class="cat-icon">🎮</div><div class="cat-name">Gaming</div></div>
+  </div>
+</div>
+
+<!-- MAIN + SIDEBAR -->
+<div class="main">
+  <div class="content">
+
+    <!-- Latest Articles -->
+    <div class="sec-head">
+      <span class="sec-label">Latest Articles</span>
+      <div class="sec-line"></div>
+      <a href="#" class="sec-more">All articles →</a>
+    </div>
+    <div class="card-grid">
+      <div class="c-card">
+        <div class="c-thumb t-blue"><span class="c-type type-article">Article</span>📡</div>
+        <div class="c-body">
+          <div class="c-title">Best Wi-Fi 7 Routers of 2025 — Ranked &amp; Reviewed</div>
+          <div class="c-meta">8 min read · Networking</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-thumb t-orange"><span class="c-type type-article">Article</span>🔧</div>
+        <div class="c-body">
+          <div class="c-title">Milwaukee vs DeWalt: Which Brand Is Worth Your Money?</div>
+          <div class="c-meta">6 min read · Power Tools</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-thumb t-purple"><span class="c-type type-article">Article</span>🎮</div>
+        <div class="c-body">
+          <div class="c-title">Best Budget Gaming Monitors Under $300 in 2025</div>
+          <div class="c-meta">7 min read · Gaming</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-thumb t-green"><span class="c-type type-article">Article</span>📷</div>
+        <div class="c-body">
+          <div class="c-title">Ring vs Arlo: Best Smart Doorbell Camera of 2025</div>
+          <div class="c-meta">5 min read · Security Cameras</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Guide -->
+    <div class="sec-head">
+      <span class="sec-label">Featured Guide</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-thumb">🏠</div>
+      <div class="feat-body">
+        <div class="feat-eyebrow">📖 How-To Guide</div>
+        <div class="feat-title">The Complete Smart Home Setup Guide for 2025</div>
+        <p class="feat-desc">From smart switches to whole-home automation — everything you need to build a connected home without overspending. Covers Alexa, Google Home, and Matter devices, all available on Amazon.</p>
+        <div class="feat-tags">
+          <span class="tag tag-amz">Amazon Picks</span>
+          <span class="tag tag-guide">Beginner Friendly</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest Deals -->
+    <div class="sec-head">
+      <span class="sec-label">Latest Deal Posts</span>
+      <div class="sec-line"></div>
+      <a href="#" class="sec-more">All deals →</a>
+    </div>
+    <div class="card-grid">
+      <div class="c-card">
+        <div class="c-thumb t-orange"><span class="c-type type-deal">Deal</span>🌡️</div>
+        <div class="c-body">
+          <div class="c-title">Ecobee Smart Thermostat Premium — 24% Off Right Now</div>
+          <div class="c-meta">Smart Home · Was $249, Now $189</div>
+          <div class="c-foot"><span class="amz-badge">View on Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-thumb t-blue"><span class="c-type type-deal">Deal</span>📶</div>
+        <div class="c-body">
+          <div class="c-title">Eero Max 7 Wi-Fi Router — 30% Off Limited Time</div>
+          <div class="c-meta">Networking · Was $499, Now $349</div>
+          <div class="c-foot"><span class="amz-badge">View on Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How-To Guides -->
+    <div class="sec-head">
+      <span class="sec-label">How-To Guides</span>
+      <div class="sec-line"></div>
+      <a href="#" class="sec-more">All guides →</a>
+    </div>
+    <div class="card-grid">
+      <div class="c-card">
+        <div class="c-thumb t-green"><span class="c-type type-guide">Guide</span>💡</div>
+        <div class="c-body">
+          <div class="c-title">How to Set Up Smart Lighting in Any Room — Step by Step</div>
+          <div class="c-meta">10 min read · Lighting</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-thumb t-purple"><span class="c-type type-guide">Guide</span>🔒</div>
+        <div class="c-body">
+          <div class="c-title">How to Build a Home Security System for Under $200</div>
+          <div class="c-meta">12 min read · Security Cameras</div>
+          <div class="c-foot"><span class="amz-badge">Amazon</span><span class="c-arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sb-box">
+      <div class="sb-title"><div class="sb-dot"></div>Hot Amazon Deals</div>
+      <div class="deal"><div class="deal-icon">🌡️</div><div class="deal-info"><div class="deal-name">Ecobee Smart Thermostat Premium</div><div class="deal-prices"><span class="deal-now">$189</span><span class="deal-was">$249</span><span class="deal-pct">-24%</span></div></div></div>
+      <div class="deal"><div class="deal-icon">📷</div><div class="deal-info"><div class="deal-name">Ring Video Doorbell Pro 2</div><div class="deal-prices"><span class="deal-now">$149</span><span class="deal-was">$229</span><span class="deal-pct">-35%</span></div></div></div>
+      <div class="deal"><div class="deal-icon">📶</div><div class="deal-info"><div class="deal-name">Eero Max 7 Wi-Fi Router</div><div class="deal-prices"><span class="deal-now">$349</span><span class="deal-was">$499</span><span class="deal-pct">-30%</span></div></div></div>
+      <div class="deal"><div class="deal-icon">💡</div><div class="deal-info"><div class="deal-name">Philips Hue Starter Kit</div><div class="deal-prices"><span class="deal-now">$79</span><span class="deal-was">$119</span><span class="deal-pct">-34%</span></div></div></div>
+      <div class="deal"><div class="deal-icon">🔧</div><div class="deal-info"><div class="deal-name">Milwaukee M18 Drill Kit</div><div class="deal-prices"><span class="deal-now">$149</span><span class="deal-was">$229</span><span class="deal-pct">-35%</span></div></div></div>
+    </div>
+
+    <div class="nl-box">
+      <div class="nl-title"><div class="sb-dot"></div>Weekly Deal Alert</div>
+      <p class="nl-desc">Best Amazon deals, new articles, and top picks every week. No spam, unsubscribe anytime.</p>
+      <input class="nl-input" type="email" placeholder="your@email.com" />
+      <button class="nl-btn">Subscribe Free</button>
+    </div>
+
+    <div class="sb-box">
+      <div class="sb-title"><div class="sb-dot"></div>Top Picks This Month</div>
+      <div class="pick"><div class="pick-num gold">1</div><div class="pick-info"><div class="pick-name">Amazon Echo Show 10</div><span class="pick-badge">Amazon</span></div></div>
+      <div class="pick"><div class="pick-num">2</div><div class="pick-info"><div class="pick-name">Wyze Cam OG Security</div><span class="pick-badge">Amazon</span></div></div>
+      <div class="pick"><div class="pick-num">3</div><div class="pick-info"><div class="pick-name">TP-Link Deco XE75 Mesh</div><span class="pick-badge">Amazon</span></div></div>
+      <div class="pick"><div class="pick-num">4</div><div class="pick-info"><div class="pick-name">Philips Hue Gradient Strip</div><span class="pick-badge">Amazon</span></div></div>
+      <div class="pick"><div class="pick-num">5</div><div class="pick-info"><div class="pick-name">Anker 737 Power Bank</div><span class="pick-badge">Amazon</span></div></div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="logo">
+          <svg class="logo-icon" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#1a1a1a"/><path d="M24 8c-1.8.9-3.6 1.4-5.4 3.8-.9 1.4-1.4 2.8-1.4 4.7 0 .9.18 1.8.46 2.7L13 23.6c-.46.46-.46.92 0 1.38l.92.92c.46.46.92.46 1.38 0l4.6-4.6c.9.28 1.8.46 2.7.46 3.68 0 6.44-2.76 6.44-6.44 0-1.84-.64-3.5-1.84-4.6l-2.76 3.68-1.84-1.84L26 9.84 24 8z" fill="#E8A020"/><path d="M11 13.5c-1.8 0-3.2.9-4.1 2.3l2.76 1.84-1.84 1.84c.46 1.38 1.84 2.3 3.68 2.3 2.3 0 4.14-1.84 4.14-4.14S13.3 13.5 11 13.5z" fill="#c8861a" opacity=".75"/></svg>
+          <span class="logo-text">The<span>Tech</span>Hawk</span>
+        </a>
+        <p class="footer-about">Sharp tech articles, honest picks, and the best Amazon deals — so you never waste money on the wrong gear.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Categories</div>
+        <div class="footer-links">
+          <a href="#">Power Tools</a>
+          <a href="#">Gadgets</a>
+          <a href="#">Home Improvement</a>
+          <a href="#">Smart Home</a>
+          <a href="#">Networking</a>
+          <a href="#">Security Cameras</a>
+          <a href="#">Lighting</a>
+          <a href="#">Gaming</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Site</div>
+        <div class="footer-links">
+          <a href="#">About TheTechHawk</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Affiliate Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disc">⚠️ Affiliate Disclosure: TheTechHawk is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by linking to Amazon.com. We may earn a commission on qualifying purchases at no extra cost to you. All opinions are our own.</p>
+      <span class="footer-copy">© 2025 TheTechHawk</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
