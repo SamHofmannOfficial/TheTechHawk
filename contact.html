@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — TheTechHawk</title>
+  <meta name="description" content="Get in touch with TheTechHawk — questions, suggestions, or product recommendations welcome." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-wrap { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+    .page-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px,5vw,52px); color: var(--white); letter-spacing: -1px; margin-bottom: 8px; }
+    .page-intro { font-size: 16px; color: var(--text2); line-height: 1.7; margin-bottom: 36px; }
+    .contact-form { background: var(--dark); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+    .form-input { width: 100%; background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 14px; outline: none; transition: border-color 0.15s; }
+    .form-input:focus { border-color: var(--accent); }
+    .form-input::placeholder { color: var(--muted); }
+    textarea.form-input { min-height: 140px; resize: vertical; }
+    .form-select { width: 100%; background: var(--dark2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 14px; outline: none; appearance: none; cursor: pointer; }
+    .form-submit { background: var(--accent); color: var(--black); font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; padding: 13px 28px; border-radius: 8px; border: none; cursor: pointer; width: 100%; transition: background 0.15s; margin-top: 8px; }
+    .form-submit:hover { background: var(--accent2); }
+    .contact-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.6; }
+    .topics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; }
+    .topic-card { background: var(--dark); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .topic-icon { font-size: 20px; margin-bottom: 6px; }
+    .topic-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+    .topic-desc { font-size: 12px; color: var(--text2); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><svg class="logo-icon" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#1a1a1a"/><path d="M24 8c-1.8.9-3.6 1.4-5.4 3.8-.9 1.4-1.4 2.8-1.4 4.7 0 .9.18 1.8.46 2.7L13 23.6c-.46.46-.46.92 0 1.38l.92.92c.46.46.92.46 1.38 0l4.6-4.6c.9.28 1.8.46 2.7.46 3.68 0 6.44-2.76 6.44-6.44 0-1.84-.64-3.5-1.84-4.6l-2.76 3.68-1.84-1.84L26 9.84 24 8z" fill="#E8A020"/><path d="M11 13.5c-1.8 0-3.2.9-4.1 2.3l2.76 1.84-1.84 1.84c.46 1.38 1.84 2.3 3.68 2.3 2.3 0 4.14-1.84 4.14-4.14S13.3 13.5 11 13.5z" fill="#c8861a" opacity=".75"/></svg><span class="logo-text">The<span>Tech</span>Hawk</span></a>
+    <ul class="nav-links"><li><a href="articles/">Articles</a></li><li><a href="deals/">Deals</a></li><li><a href="guides/">Guides</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="active">Contact</a></li></ul>
+    <input class="nav-search" type="search" placeholder="Search articles &amp; deals…" />
+  </div>
+</nav>
+<div class="page-wrap">
+  <h1 class="page-title">Get in Touch</h1>
+  <p class="page-intro">Questions, suggestions, or a product you want us to cover? We read every message.</p>
+  <div class="topics">
+    <div class="topic-card"><div class="topic-icon">💡</div><div class="topic-title">Article Suggestions</div><div class="topic-desc">Have a product or topic you'd like us to cover?</div></div>
+    <div class="topic-card"><div class="topic-icon">🐛</div><div class="topic-title">Site Issues</div><div class="topic-desc">Broken link or something not working right?</div></div>
+    <div class="topic-card"><div class="topic-icon">❓</div><div class="topic-title">General Questions</div><div class="topic-desc">Anything else — we're happy to help.</div></div>
+    <div class="topic-card"><div class="topic-icon">🤝</div><div class="topic-title">Partnerships</div><div class="topic-desc">Legitimate business inquiries welcome.</div></div>
+  </div>
+  <div class="contact-form">
+    <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="John Smith" /></div>
+    <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com" /></div>
+    <div class="form-group"><label class="form-label">Topic</label>
+      <select class="form-select">
+        <option>Article or product suggestion</option>
+        <option>Site issue or broken link</option>
+        <option>General question</option>
+        <option>Partnership inquiry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="What's on your mind?"></textarea></div>
+    <button class="form-submit">Send Message →</button>
+    <p class="contact-note">We typically respond within 1–2 business days. No spam, ever.</p>
+  </div>
+</div>
+<footer class="footer"><div class="footer-inner"><div class="footer-top"><div><a href="index.html" class="logo"><svg class="logo-icon" viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="8" fill="#1a1a1a"/><path d="M24 8c-1.8.9-3.6 1.4-5.4 3.8-.9 1.4-1.4 2.8-1.4 4.7 0 .9.18 1.8.46 2.7L13 23.6c-.46.46-.46.92 0 1.38l.92.92c.46.46.92.46 1.38 0l4.6-4.6c.9.28 1.8.46 2.7.46 3.68 0 6.44-2.76 6.44-6.44 0-1.84-.64-3.5-1.84-4.6l-2.76 3.68-1.84-1.84L26 9.84 24 8z" fill="#E8A020"/><path d="M11 13.5c-1.8 0-3.2.9-4.1 2.3l2.76 1.84-1.84 1.84c.46 1.38 1.84 2.3 3.68 2.3 2.3 0 4.14-1.84 4.14-4.14S13.3 13.5 11 13.5z" fill="#c8861a" opacity=".75"/></svg><span class="logo-text">The<span>Tech</span>Hawk</span></a><p class="footer-about">Sharp tech articles, honest picks, and the best Amazon deals.</p></div><div><div class="footer-col-title">Content</div><div class="footer-links"><a href="articles/">All Articles</a><a href="deals/">All Deals</a><a href="guides/">How-To Guides</a></div></div><div><div class="footer-col-title">Site</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="disclosure.html">Affiliate Disclosure</a></div></div></div><div class="footer-bottom"><p class="footer-disc">⚠️ Affiliate Disclosure: TheTechHawk participates in the Amazon Associates Program. We may earn a commission on qualifying purchases at no extra cost to you.</p><span class="footer-copy">© 2026 TheTechHawk</span></div></div></footer>
+</body>
+</html>
